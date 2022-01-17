@@ -1,0 +1,22 @@
+<body tyle="background-color:rgb(247, 242, 242) ;">
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" fxHide fxShow.lt-md>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Welcome {{userdetailinPC.userName}}</span>
+    </mat-toolbar>
+<mat-sidenav-container>
+   <!-- <mat-sidenav #sidenav mode="side" [opened]="opened">-->
+    <mat-sidenav #sidenav mode="side">
+      <a href="#"></a>
+      <a href="/dashboard/app-user-profile">Profile</a><br><br>
+      <button mat-raised-button color="accent" (click)="onLogOut()" >LOGOUT</button>      
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="background-color: darkcyan;">
+        <app-user-profile [userDetails]=userdetailinPC [totalItemsPrice]=totalPrice></app-user-profile>
+      <!--<router-outlet [userDetails]=userdetailinPC></router-outlet>-->
+    </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</body>

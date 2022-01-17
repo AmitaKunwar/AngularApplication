@@ -1,0 +1,30 @@
+<h2>User information is displayed using WEB API!<h2>
+ 
+  <a routerLink="/cu-createUser"><button class="btn_1" >Add User</button></a>
+   <ag-grid-angular 
+   style="width: 1000px; height: 500px;" 
+   class="ag-theme-balham"
+   [rowData]="userList" 
+   [columnDefs]="columnDefs">
+ </ag-grid-angular>
+ <router-outlet></router-outlet>
+ <div style="padding: 13px;" >
+  <mat-spinner *ngIf="userList.length === 0"></mat-spinner>
+
+  <mat-card *ngFor="let usl of userList" style="margin-top:11px;">
+      <mat-card-header>
+          <mat-card-title>{{usl.name}}</mat-card-title>
+          <mat-card-subtitle>{{usl.email}} 
+          </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+              {{usl.status}}
+          </p>
+          <!--<img style="height:100%; width: 100%;" src="{{ product.imageUrl }}" />-->
+     </mat-card-content>
+      <mat-card-actions>
+    <button mat-button> Buy product</button>
+  </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,20 @@
+input.invalid{
+    border-color:red;
+}
+.form-group {
+    color:grey;
+}
+.form-group input{
+    font-weight:500;
+}
+.form-group ::placeholder{
+    color:#c0bdbd;
+    font-weight:300;
+}
+thread th{
+     font-weight:400;
+}
+table tbody tr:hover{
+    background-color: #fffbf2;
+    cursor: pointer;
+}

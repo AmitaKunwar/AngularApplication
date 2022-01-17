@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="container">
+            <h1>Add Employee</h1>
+                
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="form-group">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" size="30" formControlName="name" class="form-control" [(ngModel)]="userService.formDataEmp.name">
+                </div><br>
+                <div class="form-group">
+                    <label for="email">Email:</label><br>
+                    <input type="text" size="30" formControlName="email" class="form-control" [(ngModel)]="userService.formDataEmp.email">
+                </div><br>
+                   
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select formControlName="gender" class="form-control" (change)="ChangeGender($event)" [(ngModel)]="userService.formDataEmp.gender">
+                        <option>Choose Gender</option>
+                        <option *ngFor="let gr of genderList">{{gr}}</option>
+                    </select>
+                    <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
+                        <!--<div *ngIf="f.website.errors.required">Name is required.</div>-->
+                        <div>Gender is required.</div>
+                    </div>
+                </div><br>
+                <div class="form-group">
+                    <label for="status">Status:</label><br>
+                    <div>
+                    <input id="active" type="radio" value="active" name="status" formControlName="status" (change)="ChangeStatus($event)" [(ngModel)]="userService.formDataEmp.status">&nbsp;&nbsp;
+                    <label for="active">Active</label>
+                    </div>
+                    <div>
+                        <input id="inactive" type="radio" value="inactive" name="status" formControlName="status" (change)="ChangeStatus($event)" [(ngModel)]="userService.formDataEmp.status">&nbsp;&nbsp;
+                    <label for="inactive">InActive</label>
+                    </div>
+        
+                </div><br>
+                <div class="form-group">
+                    <label for="phone">Phone:</label><br>
+                    <input type="text" size="30" formControlName="phone" class="form-control" [(ngModel)]="userService.formDataEmp.phone">
+                </div><br>
+                <div class="form-group">
+                    <label for="address">Address:</label><br>
+                    <input type="text" size="30" formControlName="address" class="form-control" [(ngModel)]="userService.formDataEmp.address">
+        
+                </div>
+               <br>
+                <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+            
+            <br>
+            
+            </form>
+        </div> <br>
+        
+    </div>
+    <div class="col-md-6">
+
+        <p>Employee {{userService.formDataEmp.name}} has been added successfully. To view the List of Employee. 
+            Please click <a routerLink="/emp-display">EmployeeList</a></p>
+    
+</div>
+</div>

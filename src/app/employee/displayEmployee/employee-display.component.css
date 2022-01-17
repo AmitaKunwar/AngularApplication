@@ -1,0 +1,25 @@
+table {
+    width: 100% ;
+ }
+  table.mat-table {
+    display: table;
+}
+.w-75{
+    width: 75px;
+}
+
+.w-100{
+    width: 100px;
+}
+.th-center{
+    text-align: center;
+}
+.th-left{
+    text-align: left;
+}
+.th-right{
+    text-align: right;
+}
+th {
+    width: 100px;
+  }

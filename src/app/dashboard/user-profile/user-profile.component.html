@@ -1,0 +1,39 @@
+<div class="main-container">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div class="login-box-header">
+                <img src="assets/images/8.jpg" height="150" width="150">
+            </div>
+            <div class="center1">
+               <p>Your Total Shopping Cost is {{totalItemsPrice}}</p>
+               
+            </div>
+            <p></p>
+        </mat-card-header>
+        <mat-card-content>
+            <div></div>
+            <div class="center" style="width: 500px; ">
+                <strong>
+                    <td>Name : </td>&nbsp;
+                </strong><strong>
+                    <td>{{userDetails.firstname}} </td>&nbsp;
+                </strong><strong>
+                    <td>{{userDetails.lastname}} </td>
+                </strong>
+                <br>
+                <strong>
+                    <td>Birthdate : </td>&nbsp;
+                </strong><strong>
+                    <td>{{userDetails.birthdate}} </td>&nbsp;
+                </strong>
+                <br>
+                <strong>
+                    <td>Email : </td>&nbsp;
+                </strong><strong>
+                    <td>{{userDetails.email}} </td>&nbsp;
+                </strong>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

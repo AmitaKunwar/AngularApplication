@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: royalblue;" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="assets/images/h3.png"></a>
+        <!--<a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page"routerLink="/dashboard" style="color: rgb(255, 254, 254);" >Dashboard</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link " aria-current="page" routerLink="app-shopping/app-shopping-list"  style="color: rgb(151, 29, 29);" >Shopping Wish</a>
+            </li>-->
+            <div class="d-inline-block " ngbDropdown #myDrop="ngbDropdown">
+              <button class="btn btn-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Shopping</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                <button routerLink="app-shopping/app-shopping-list" ngbDropdownItem>My Category</button>
+                <button routerLink="app-shopping/app-search-item" ngbDropdownItem>Search my items</button>
+              </div>
+            </div>
+           <!--<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Shopping
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark"  aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/app-employee">Shopping Wish</a></li>
+                    <li><a class="dropdown-item" href="#">Search</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>-->
+             <!--<li class="nav-item ">
+               <a class="nav-link " routerLink="/pl-productList" style="color: rgb(151, 29, 29);">Cooking Receipe</a>
+            </li>-->
+          </ul>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" >
+            <ul class="navbar-nav ">
+              <li class="nav-item"  *ngIf="!(LoginStatus$ | async) as LoginStatus">
+                <a class="nav-link active" aria-current="page" href="user/app-login"  style="color: gainsboro;" *ngIf="LoginStatus">LOG IN</a>
+              </li>
+              <li class="nav-item" *ngIf="!(LoginStatus$ | async) as LoginStatus">
+                <a class="nav-link" routerLink="user/registration"  style="color: gainsboro;" *ngIf="LoginStatus">SIGN UP</a>
+              </li>
+              <li class="nav-item" *ngIf="(LoginStatus$ | async) as LoginStatus">
+                <a class="nav-link text-danger" *ngIf="(Username$ | async) as UserName">{{UserName}}</a>
+              </li>
+              <li class="nav-item" *ngIf="(LoginStatus$ | async) as LoginStatus">
+                <a class="btn btn-primary text-white" (click)="onLogOut()" *ngIf="LoginStatus">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+<router-outlet></router-outlet>
+</body>
+</html>

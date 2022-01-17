@@ -1,0 +1,83 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> User registration is successful.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div></div><br>
+<mat-card style="width: 550px;">
+    <mat-card-title style="text-align: center; color: rgb(36, 39, 233);">User Registration Form
+    </mat-card-title>
+    <br>
+    <mat-card-content>
+        <form [formGroup]="registerForm" autocomplete="off" fxLayout="column wrap" fxLayoutAlign="center center"
+            fxLayoutGap="10px" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="username" formControlName="username">
+                <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+              <label class="danger"></label>
+            </mat-form-field>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <mat-form-field class="example-half-width" appearance="fill">
+                        <input matInput placeholder="First name" formControlName="firstname">
+                        <mat-error *ngIf="hasError('firstname', 'required')">First name is required</mat-error>
+                    </mat-form-field>&nbsp;&nbsp;&nbsp;
+                    <mat-form-field class="example-half-width" appearance="fill">
+                        <input matInput placeholder="Last name" formControlName="lastname">
+                        <mat-error *ngIf="hasError('lastname', 'required')">Last name is required</mat-error>
+                    </mat-form-field><br>
+                </div>
+            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+                <mat-error *ngIf="hasError('email', 'email')">Please enter a valid email</mat-error>
+            </mat-form-field><br>
+            <div formGroupName="passwords">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="password" formControlName="password">
+                    <mat-error *ngIf="this.registerForm.get('passwords')?.get('password')?.hasError('required')">
+                        Password is required</mat-error>
+                    <mat-error *ngIf="this.registerForm.get('passwords')?.get('password')?.hasError('minlength')">Length
+                        must be at leat 4 digit</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input type="password" matInput placeholder="Confirm Password" formControlName="confirmpassword">
+                    <mat-error *ngIf="this.registerForm.get('passwords')?.get('confirmpassword')?.hasError('required')">
+                        Confirm Password is required</mat-error>
+                    <mat-error *ngIf="this.registerForm.get('passwords')?.get('confirmpassword')?.hasError('matching')">
+                        Password must match.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput [matDatepicker]="picker" placeholder="Select Birthdate" formControlName="birthdate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field><br>
+            <mat-label style="font-size: medium;">Choose Gender</mat-label>&nbsp;&nbsp;
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button value="1">Male</mat-radio-button>
+                <mat-radio-button value="2">Female</mat-radio-button>
+            </mat-radio-group>
+            <div></div>
+            <div class="bcenter">
+                <mat-card-actions>
+                    <button mat-raised-button color="accent" type="submit"
+                        [disabled]="!registerForm.valid">Submit</button>
+                    <button type="button" (click)="onReset()" mat-raised-button color="accent">Reset</button>
+                </mat-card-actions>
+            </div>
+            <h4>OR</h4>
+            <div class="col-8 social padding" style="text-align: right;">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div style="text-align: center;">Already a user? <a href="user/app-login">LOG IN</a></div>
+        </form>
+    </mat-card-content>
+
+</mat-card>

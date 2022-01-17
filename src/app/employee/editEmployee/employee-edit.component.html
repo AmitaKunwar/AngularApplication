@@ -1,0 +1,57 @@
+<h2>Edit Employee</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="container">
+            <h1>Update Employee</h1>
+            <div class="form-group">
+                <label for="name">Name:</label><br>
+                <p><input [(ngModel)]="emp.name"></p>
+            </div><br>
+            <div class="form-group">
+                <label for="name">Email:</label><br>
+                <p><input [(ngModel)]="emp.email"></p>
+            </div><br>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select  (change)="ChangeGender($event)">
+                    <option>Choose Gender</option>
+                    <option *ngFor="let gr of genderList">{{gr}}</option>
+                </select>
+            </div><br>
+            <div class="form-group">
+                <label for="status">Status:</label><br>
+                <div>
+                    <input id="active" type="radio" value="active" name="status"
+                        (change)="ChangeStatus($event)">&nbsp;&nbsp;
+                    <label for="active">Active</label>
+                </div>
+                <div>
+                    <input id="inactive" type="radio" value="inactive" name="status"
+                        (change)="ChangeStatus($event)">&nbsp;&nbsp;
+                    <label for="inactive">InActive</label>
+                </div>
+
+            </div><br>
+            <div class="form-group">
+                <label for="name">Phone:</label><br>
+                <p><input [(ngModel)]="emp.phone"></p>
+
+            </div><br>
+            <div class="form-group">
+                <label for="name">Address:</label><br>
+                <p><input [(ngModel)]="emp.address"></p>
+
+            </div><br>
+
+
+
+        </div> <br>
+        <button (click)="updateEmployee()">Update</button>
+    </div>
+    <div class="col-md-6">
+
+        <p>Employee {{empService.formDataEmp.name}} has been added successfully. To view the List of Employee.
+            Please click <a routerLink="/emp-display">EmployeeList</a></p>
+
+    </div>
+</div>

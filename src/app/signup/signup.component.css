@@ -1,0 +1,30 @@
+.main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 25px;
+    
+  }
+  /*.main-div{
+    height: 600vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  */
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-half-width {
+    width: 48%;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+ 

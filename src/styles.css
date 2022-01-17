@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ag-grid-community/dist/styles/ag-grid.css";  
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";  
+@import "~@syncfusion/ej2-grids/styles/material.css";
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~ngx-toastr/toastr.css';
+
+ngb-carousel {
+  max-width: 800px;
+  margin: 1%;
+}
+
+ngb-carousel img {
+  width: 100%;
+  outline: none;
+}
+
+ngb-carousel {
+  width: inherit;
+  height: inherit;
+}
+
+.carousel-inner {
+  overflow: visible;
+}
+.carousel-item {
+  display: flex !important;
+  opacity: 0;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.50s ease;
+  transition: transform 0.50s ease, -webkit-transform 0.50s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  
+}
+/*.carousel-item {
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s;
+  z-index: -1;
+  margin-bottom: 0;  
+}*/
+/*.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}*/
+
+.carousel-item.active{
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+.carousel-control-prev {
+   z-index: 20;
+}
+
+
+.carousel-control-next {
+   z-index: 20;
+}
+
+.carousel-indicators{
+  z-index: 20;
+}

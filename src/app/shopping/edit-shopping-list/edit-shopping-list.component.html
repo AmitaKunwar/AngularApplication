@@ -1,0 +1,40 @@
+<mat-card class="example-card">
+    <mat-card-header style="margin-left: 10px;">
+        <mat-card-title>EDIT SHOPPING LIST</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <div></div><br>
+    <form [formGroup]="editForm" autocomplete="off" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px" (ngSubmit)="OnSubmit()">
+        <mat-card-content class="content">
+            <mat-form-field [hidden]="true">
+                <input matInput type="string" placeholder="id" formControlName="id">
+            </mat-form-field>
+            <mat-form-field [hidden]="true">
+                <input matInput type="string" placeholder="Id" formControlName="userId">
+            </mat-form-field>
+            <mat-form-field [hidden]="true">
+                <input matInput type="string" placeholder="categoryID" formControlName="categoryID">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="Item Name" formControlName="itemName" >
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description" cdkTextareaAutosize cdkAutosizeMinRows="6"
+                    cdkAutosizeMaxRows="8" #cfcAutosize="cdkTextareaAutosize" formControlName="shoppingDescription">
+            </textarea>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="Price" formControlName="itemPrice">
+            </mat-form-field>
+        </mat-card-content>
+
+        <div></div>
+            <div class="bcenter">
+                <mat-card-actions>
+                    <button id="myButton" mat-raised-button color="accent" type="submit" >Submit</button>
+                    <button mat-raised-button color="primary" mat-dialog-close>close</button>
+                </mat-card-actions>
+            </div>
+    </form>
+</mat-card>

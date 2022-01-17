@@ -1,0 +1,97 @@
+<!--Two column section-->
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="col-lg-6">
+      <h2 style="text-align: left;">Welcome to my website</h2>
+      <p>I am Amita Kunwar. This is my personal blog. I would like to share things that we celebrate, we eat, travel. I
+        like to cook food , travel, work on my website. I have two beautiful daughters.</p>
+    </div>
+    <div class="col-lg-6">
+      <img src="assets/images/n1.jpg" class="img-fluid">
+    </div>
+  </div>
+
+</div>
+<!-- Jumbotron 
+<div class="jumbotron">
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+    <p class="lead">This is ak website. Angular application new test application.</p>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+    <a href="#"><button type="button" class="btn btn-outline-secondary btn-lg">Sign Up</button></a>
+  </div>
+</div>-->
+<!--Image Slider-->
+<div class="col-md-8 col-sm-6" >
+  <h2 style="text-align: left;">Some Images I would like to share</h2>
+  <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" [interval]="10000" [keyboard]="true"
+    [pauseOnHover]="true" [wrap]="true" [activeId]="'secondSlide'">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/images/n2.jpg" alt="Angular Carousel 1" >
+      </div>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p>kathmandu</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/images/n3.jpg" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+        <h3>Some Images from Nepal</h3>
+        <p>Becautiful Picture 2.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/images/8.jpg" alt="Angular Carousel 3">
+      </div>
+      <div class="carousel-caption">
+        <h3>Some Images from Nepal</h3>
+        <p>Becautiful Picture 2.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/images/14.jpg" alt="Angular Carousel 3">
+      </div>
+      <div class="carousel-caption">
+        <h3>Some Images from Nepal</h3>
+        <p>Becautiful Picture 14.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<!--Connect-->
+<div class="container-fluid padding" style="border-style: ridge;">
+  <div class="row text-center padding">
+    <div class="col-12">
+      <h2 style="text-align: center;">Connect</h2>
+    </div>
+    <div class="col-12 social padding">
+      <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-google-plus-g"></i></a>
+      <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/channel/UCQ76fPIbTYAjEShM9lI578g"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</div>
+<!--Footer-->
+<footer>
+  <div class="container-fluid padding">
+    <div class="row text-center padding">
+      <div class="col-md-6">
+        <p>Amita Kunwar</p>
+        <p>Fairfax, VA</p>
+      </div>
+      <div class="col-md-6">
+        <p>Amita Kunwar</p>
+        <p>Fairfax, VA</p>
+      </div>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,88 @@
+<div></div><br>
+<mat-card class="example-card">
+    <mat-card-header style="margin-left: 5x;">
+        <mat-card-title style="color: crimson;">Search shopping item using one of the criteria</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <div></div><br>
+    <form [formGroup]="searchForm"  (ngSubmit)="OnSubmit()">
+        <mat-card-content>
+            <mat-form-field [hidden]="true">
+                <input matInput type="string" placeholder="Id" formControlName="userId">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Search By Category</mat-label>
+                <mat-select formControlName="categoryName">
+                    <mat-option *ngFor="let sc of sCategories" [value]="sc.viewValue">
+                        {{sc.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput placeholder="Search By Item" formControlName="itemName">
+            </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Search Between
+
+            <mat-form-field class="example-half-width" appearance="fill">
+                <input matInput placeholder="Price " formControlName="itemPrice_1">
+            </mat-form-field> &nbsp;&nbsp;and&nbsp;
+            <mat-form-field class="example-half-width" appearance="fill">
+                <input matInput placeholder="Price" formControlName="itemPrice_2">
+            </mat-form-field> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button color="accent" type="submit" >Submit</button> &nbsp;&nbsp;
+            <button type="button" (click)="onReset()" mat-raised-button color="accent">Reset</button>
+        </mat-card-content>
+       <!-- <mat-card-actions>
+            <button mat-raised-button color="accent" type="submit" >Submit</button>
+        </mat-card-actions>-->
+    </form>
+</mat-card>
+
+<div></div><br>
+<div class="table-responsive-sm table-responsive-md table-responsive-lg">
+    <table class="table" mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
+        <!-- ID Column -->
+        <ng-container matColumnDef="Id">
+            <th scope="col" mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <!-- ItemName Column -->
+        <ng-container matColumnDef="itemname">
+            <th scope="col" mat-header-cell *matHeaderCellDef> Item Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+        </ng-container>
+        <!-- ID Column -->
+        <ng-container matColumnDef="shoppingdescription">
+            <th scope="col" mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.shoppingDescription}} </td>
+        </ng-container>
+        <!-- ID Column -->
+        <ng-container matColumnDef="itemprice">
+            <th scope="col" mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.itemPrice}} </td>
+        </ng-container>
+
+        <!--Add Edit/Delete -->
+        <ng-container matColumnDef="Edit">
+            <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header width="10%">Edit</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button type="button" color="accent" matTooltip="Edit" (click)="openDialog(element.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Delete">
+            <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header width="10%">Delete</th>
+            <td mat-cell *matCellDef="let element"> <button mat-icon-button type="button" color="accent"
+                    matTooltip="Delete"  (click)="deleteItem(element.id)" >
+                    <mat-icon>delete_forever</mat-icon>
+                </button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator style="margin-right: 340px; background-color: rgb(247, 242, 242) ;" [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
